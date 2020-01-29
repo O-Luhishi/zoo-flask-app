@@ -10,7 +10,8 @@ def homepage():
     """
     Render the homepage template on the / route
     """
-    return render_template('home/index.html', title="ZOO-APP")
+    animals = Animal.query.all()
+    return render_template('home/index.html', title="ZOO-APP", animals=animals)
 
 
 @home.route('/add_animal', methods=['GET', 'POST'])
@@ -24,3 +25,4 @@ def add_animal():
         flash('You have successfully admitted an animal!')
         return redirect(url_for('home.homepage'))
     return render_template('home/add_animal.html', form=form, title='Add Animal')
+
