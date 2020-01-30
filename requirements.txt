@@ -5,3 +5,4 @@ MySQL-python==1.2.5
 Flask-Migrate==2.5.2
 Flask-WTF==0.14.2
 Flask-Bootstrap==3.3.7.1
+gunicorn==19.10.0
