@@ -2,8 +2,8 @@ version: '3'
 services:
     web:
         build: ./zoo-flask-app
-        ports:
-            - "5000:5000"
+        expose:
+            - 5000
         volumes:
             - .:/code
         depends_on:
@@ -20,5 +20,11 @@ services:
         - "32000:3306"
       volumes:
         - my-db:/var/lib/mysql
+    nginx:
+      build: ./nginx
+      ports:
+      - 1337:80
+      depends_on:
+      - web
 volumes:
   my-db:
